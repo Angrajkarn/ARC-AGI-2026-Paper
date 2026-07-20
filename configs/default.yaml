@@ -1,0 +1,90 @@
+# ARC-AGI-2 Solver — Default Configuration
+# Override any section in experiment-specific configs.
+
+project:
+  name: "arc-solver"
+  version: "0.1.0"
+  seed: 42
+  log_level: "INFO"
+
+paths:
+  data_dir: "data/datasets"
+  checkpoints_dir: "data/checkpoints"
+  logs_dir: "data/logs"
+  results_dir: "results"
+
+solver:
+  max_time_per_task: 60          # seconds
+  max_attempts: 2                # top-N predictions per test input
+  ensemble_mode: true
+  solvers:
+    - "symbolic"
+    - "heuristic"
+    - "constraint"
+  enable_llm: false              # set true if Ollama is available
+
+search:
+  algorithm: "beam"              # beam | mcts | genetic | constraint
+  beam_width: 10
+  max_iterations: 500
+  max_program_depth: 8
+  early_stopping: true
+  memoization: true
+  parallel_workers: 4
+
+beam_search:
+  width: 10
+  max_depth: 8
+  score_weights:
+    train_accuracy: 0.6
+    simplicity: 0.2
+    consistency: 0.2
+
+mcts:
+  simulations: 200
+  exploration_constant: 1.414
+  max_depth: 10
+  rollout_depth: 3
+
+genetic:
+  population_size: 50
+  generations: 30
+  mutation_rate: 0.15
+  crossover_rate: 0.7
+  elitism: 5
+
+vision:
+  min_object_size: 1
+  background_detection: "most_frequent"  # most_frequent | corner | zero
+  symmetry_tolerance: 0.0
+
+dsl:
+  max_program_length: 12
+  enable_conditionals: true
+  enable_loops: false
+
+memory:
+  backend: "json"               # json | sqlite | in_memory
+  max_size: 10000
+
+verifier:
+  require_exact_match: true
+  min_confidence: 0.0
+
+llm:
+  provider: "ollama"            # ollama | openai | mock
+  model: "llama3.2"
+  host: "http://localhost:11434"
+  timeout: 30
+  max_retries: 2
+
+evaluation:
+  metrics:
+    - "exact_match"
+    - "object_consistency"
+  save_failures: true
+  failure_analysis: true
+
+submission:
+  output_file: "submission.json"
+  validate_format: true

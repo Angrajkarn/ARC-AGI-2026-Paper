@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arc-solver"
+version = "0.1.0"
+description = "Research-grade ARC-AGI-2 reasoning system for the Kaggle ARC Prize competition"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "ARC Research Team" }]
+keywords = ["ARC", "AGI", "program-synthesis", "reasoning", "kaggle"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "networkx>=3.1",
+    "pydantic>=2.0",
+    "loguru>=0.7",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+    "click>=8.1",
+    "requests>=2.28",
+    "matplotlib>=3.7",
+    "pillow>=10.0",
+    "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "pytest-xdist>=3.3",
+    "black>=23.0",
+    "ruff>=0.1",
+    "mypy>=1.5",
+]
+llm = [
+    "httpx>=0.24",
+    "openai>=1.0",
+]
+
+[project.scripts]
+arc-solve = "scripts.solve:main"
+arc-evaluate = "scripts.evaluate:main"
+arc-download = "scripts.download_data:main"
+arc-submit = "scripts.submit:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
