@@ -2,7 +2,7 @@
 Benchmark & Ablation Analysis Script for ARC-AGI-2026 Reasoning Engine.
 
 Usage:
-    python scripts/benchmark_ablation.py --dataset data/datasets/training --max-tasks 10
+    python scripts/benchmark_ablation.py --dataset data/datasets/training --max-tasks 5
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ console = Console()
 
 @click.command()
 @click.option("--dataset", "-d", default="data/datasets/training", help="Path to ARC task directory")
-@click.option("--max-tasks", "-m", default=10, type=int, help="Maximum number of tasks to benchmark")
+@click.option("--max-tasks", "-m", default=5, type=int, help="Maximum number of tasks to benchmark")
 @click.option("--output", "-o", default="results/ablation_benchmark.json", help="Path to save output JSON")
 def main(dataset: str, max_tasks: int, output: str) -> None:
     """Run comparative ablation benchmarks across Beam, MCTS, and Constraint search engines."""
@@ -54,14 +54,16 @@ def main(dataset: str, max_tasks: int, output: str) -> None:
             cfg.search.algorithm = algo
             cfg.solver.max_time_per_task = 3.0
 
-            solver = ARCSolver(cfg)
+            solver = ARCSolver(config=cfg)
             start_t = time.time()
-            solution = solver.solve_task(task_dict)
+            result = solver.solve(task_dict, task_id=task_id)
             elapsed = time.time() - start_t
+
+            solved_task = result.all_correct or any(t.found_perfect for t in result.test_results)
 
             results[algo]["total"] += 1
             results[algo]["total_time"] += elapsed
-            if solution.solved:
+            if solved_task:
                 results[algo]["solved"] += 1
 
     # Render summary table
