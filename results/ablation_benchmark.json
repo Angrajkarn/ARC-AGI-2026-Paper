@@ -1,0 +1,30 @@
+[
+  {
+    "algorithm": "beam",
+    "solved": 0,
+    "total": 5,
+    "accuracy": 0.0,
+    "avg_time": 61.61770643999771
+  },
+  {
+    "algorithm": "mcts",
+    "solved": 0,
+    "total": 5,
+    "accuracy": 0.0,
+    "avg_time": 1.0553578999999444
+  },
+  {
+    "algorithm": "genetic",
+    "solved": 0,
+    "total": 5,
+    "accuracy": 0.0,
+    "avg_time": 0.25629983999970135
+  },
+  {
+    "algorithm": "constraint",
+    "solved": 0,
+    "total": 5,
+    "accuracy": 0.0,
+    "avg_time": 25.315015139998287
+  }
+]
