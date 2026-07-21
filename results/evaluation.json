@@ -1,9 +1,9 @@
 {
   "summary": {
-    "total_tasks": 50,
-    "solved_tasks": 2,
-    "solve_rate": 0.04,
-    "avg_elapsed_sec": 176.90720948399743
+    "total_tasks": 10,
+    "solved_tasks": 0,
+    "solve_rate": 0.0,
+    "avg_elapsed_sec": 99.98675650000004
   },
   "per_task": [
     {
@@ -11,350 +11,70 @@
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 29.46443100005854
+      "elapsed_sec": 51.19567890000326
     },
     {
       "task_id": "00d62c1b",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 37.450072000036016
+      "elapsed_sec": 120.75515570000425
     },
     {
       "task_id": "017c7c7b",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 27.956558999954723
+      "elapsed_sec": 34.197504700001446
     },
     {
       "task_id": "025d127b",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 29.13362960005179
+      "elapsed_sec": 40.46858419999626
     },
     {
       "task_id": "045e512c",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 32.29075769998599
+      "elapsed_sec": 349.09061949999887
     },
     {
       "task_id": "0520fde7",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 28.1085344000021
+      "elapsed_sec": 30.22712219999812
     },
     {
       "task_id": "05269061",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 27.95305840007495
+      "elapsed_sec": 39.91417360000196
     },
     {
       "task_id": "05f2a901",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 31.435479399980977
+      "elapsed_sec": 45.86079469999822
     },
     {
       "task_id": "06df4c85",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 32.08932150003966
+      "elapsed_sec": 252.84668199999578
     },
     {
       "task_id": "08ed6ac7",
       "solve_rate": 0.0,
       "num_correct": 0,
       "num_tests": 1,
-      "elapsed_sec": 28.346932099899277
-    },
-    {
-      "task_id": "09629e4f",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.74062039994169
-    },
-    {
-      "task_id": "0962bcdd",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 29.136366399936378
-    },
-    {
-      "task_id": "0a938d79",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 30.582752399961464
-    },
-    {
-      "task_id": "0b148d64",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 33.40537600009702
-    },
-    {
-      "task_id": "0ca9ddb6",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.69407140009571
-    },
-    {
-      "task_id": "0d3d703e",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 27.892673900001682
-    },
-    {
-      "task_id": "0dfd9992",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 31.25243320001755
-    },
-    {
-      "task_id": "0e206a2e",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 29.861878099967726
-    },
-    {
-      "task_id": "10fcaaa3",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 27.938541100011207
-    },
-    {
-      "task_id": "11852cab",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.706256399978884
-    },
-    {
-      "task_id": "1190e5a7",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 33.035977600025944
-    },
-    {
-      "task_id": "137eaa0f",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.830419699894264
-    },
-    {
-      "task_id": "150deff5",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.826820600079373
-    },
-    {
-      "task_id": "178fcbfb",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.83913229999598
-    },
-    {
-      "task_id": "1a07d186",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 39.00382559990976
-    },
-    {
-      "task_id": "1b2d62fb",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 41.25250890001189
-    },
-    {
-      "task_id": "1b60fb0c",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 46.7619709999999
-    },
-    {
-      "task_id": "1bfc4729",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 41.28746180003509
-    },
-    {
-      "task_id": "1c786137",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 43.427470099995844
-    },
-    {
-      "task_id": "1caeab9d",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 41.18324659997597
-    },
-    {
-      "task_id": "1cf80156",
-      "solve_rate": 1.0,
-      "num_correct": 1,
-      "num_tests": 1,
-      "elapsed_sec": 4.423537400085479
-    },
-    {
-      "task_id": "1e0a9b12",
-      "solve_rate": 1.0,
-      "num_correct": 1,
-      "num_tests": 1,
-      "elapsed_sec": 5.077242800034583
-    },
-    {
-      "task_id": "1e32b0e9",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 31.375285499962047
-    },
-    {
-      "task_id": "1f0c79e5",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.14440160000231
-    },
-    {
-      "task_id": "1f642eb9",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.08494449988939
-    },
-    {
-      "task_id": "1f85a75f",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 38.07220489997417
-    },
-    {
-      "task_id": "1f876c06",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.64955029997509
-    },
-    {
-      "task_id": "1fad071e",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 30.09366749995388
-    },
-    {
-      "task_id": "2013d3e2",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 27.799376599956304
-    },
-    {
-      "task_id": "2204b7a8",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.021440099924803
-    },
-    {
-      "task_id": "22168020",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.3998419001
-    },
-    {
-      "task_id": "22233c11",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 28.452539299963973
-    },
-    {
-      "task_id": "2281f1f4",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 29.20699439989403
-    },
-    {
-      "task_id": "228f6490",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 7304.005409999983
-    },
-    {
-      "task_id": "22eb0ac0",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 42.90843820001464
-    },
-    {
-      "task_id": "234bbc79",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 34.67971140006557
-    },
-    {
-      "task_id": "23581191",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 33.7053559999913
-    },
-    {
-      "task_id": "239be575",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 2,
-      "elapsed_sec": 60.75451250001788
-    },
-    {
-      "task_id": "23b5c85d",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 30.196427599992603
-    },
-    {
-      "task_id": "253bf280",
-      "solve_rate": 0.0,
-      "num_correct": 0,
-      "num_tests": 1,
-      "elapsed_sec": 30.42101310007274
+      "elapsed_sec": 35.311249500002305
     }
   ]
 }
