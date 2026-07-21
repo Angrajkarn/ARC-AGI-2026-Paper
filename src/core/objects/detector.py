@@ -216,11 +216,9 @@ class ObjectDetector:
                 queue: deque = deque([(start_r, start_c)])
                 while queue:
                     r, c = queue.popleft()
-                    if visited[r, c]:
-                        continue
-                    visited[r, c] = True
                     if grid.get(r, c) != color:
                         continue
+                    visited[r, c] = True
                     pixels.add((r, c))
                     for dr, dc in self._offsets():
                         nr, nc = r + dr, c + dc
