@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 # Auto-generated Kaggle Submission Script for ARC-AGI-2026 Engine
 # Environment: Offline Python 3.10+
-import os, sys, json, time
+import os, sys, json, time, logging
 import numpy as np
+
+def get_logger(name):
+    return logging.getLogger(name)
 
 # --- Begin src/core/grid/grid.py ---
 """
@@ -12,7 +17,6 @@ them as raw NumPy tensors we wrap them in a rich dataclass that carries
 derived metadata (size, color set, background) and convenience methods.
 """
 
-from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import List, Optional, Set, Tuple
@@ -211,7 +215,6 @@ discovered by higher-level detectors).  Every object carries geometry,
 appearance and relational metadata.
 """
 
-from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field
@@ -484,7 +487,6 @@ Detection strategies:
   - Repeated pattern detection
 """
 
-from __future__ import annotations
 
 from collections import deque
 from typing import Dict, List, Optional, Set, Tuple
@@ -812,7 +814,6 @@ Each primitive is a pure function:
 All primitives are registered in PRIMITIVE_REGISTRY for the DSL executor.
 """
 
-from __future__ import annotations
 
 import math
 from typing import Any, Callable, Dict, List, Optional, Tuple
@@ -1025,7 +1026,6 @@ def flood_fill(grid: ArcGrid, row: int, col: int, new_color: int) -> ArcGrid:
 @_register("fill_holes")
 def fill_holes(grid: ArcGrid, fill_color: Optional[int] = None) -> ArcGrid:
     """Fill enclosed background holes within objects."""
-    from src.core.objects.detector import ObjectDetector
     detector = ObjectDetector()
     objects = detector.detect(grid)
     arr = grid.pixels.copy()
@@ -1285,7 +1285,6 @@ def gravity(grid: ArcGrid, direction: str = "down") -> ArcGrid:
 @_register("sort_objects")
 def sort_objects(grid: ArcGrid, key: str = "area", reverse: bool = True) -> ArcGrid:
     """Sort detected objects by *key* and re-draw them top-to-bottom."""
-    from src.core.objects.detector import ObjectDetector
     detector = ObjectDetector()
     objects = detector.detect(grid)
     key_fn = {
@@ -1311,7 +1310,6 @@ def sort_objects(grid: ArcGrid, key: str = "area", reverse: bool = True) -> ArcG
 @_register("align_objects")
 def align_objects(grid: ArcGrid, alignment: str = "left") -> ArcGrid:
     """Align all detected objects to a common edge."""
-    from src.core.objects.detector import ObjectDetector
     detector = ObjectDetector()
     objects = detector.detect(grid)
     arr = np.full_like(grid.pixels, grid.background)
@@ -1491,7 +1489,6 @@ Advanced DSL Primitives — Grid morphology, pattern tiling, cellular automata,
 enclosed hole filling, and outline extraction.
 """
 
-from __future__ import annotations
 
 from typing import Optional
 import numpy as np
@@ -1667,7 +1664,6 @@ Higher-Order AST Program Primitives — Object-level mapping, conditional transf
 and line reductions.
 """
 
-from __future__ import annotations
 
 from typing import Any, Callable, Dict, List, Optional
 import numpy as np
@@ -1736,7 +1732,6 @@ def conditional_apply(
     if condition == "is_symmetric":
         is_true = (arr == np.fliplr(arr)).all() or (arr == np.flipud(arr)).all()
     elif condition == "has_holes":
-        from src.dsl.primitives.advanced_primitives import fill_enclosed_holes
         filled = fill_enclosed_holes(grid)
         is_true = (filled.pixels != arr).any()
 
@@ -1785,18 +1780,12 @@ Features:
   - Sandboxed: never modifies input grids in-place
 """
 
-from __future__ import annotations
 
 import time
 import traceback
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-    Condition,
-    ConditionType,
-    DSLInstruction,
-    DSLProgram,
-)
 
 logger = get_logger(__name__)
 
@@ -2078,7 +2067,6 @@ Neural/LLM-Guided Search & Multi-Dimensional Heuristic — Advanced continuous s
 and primitive prior probability scoring for MCTS / Beam search.
 """
 
-from __future__ import annotations
 
 import math
 from dataclasses import dataclass
@@ -2215,7 +2203,6 @@ ARC Prize submission format (per test input, 2 attempts):
 }
 """
 
-from __future__ import annotations
 
 import json
 from pathlib import Path
