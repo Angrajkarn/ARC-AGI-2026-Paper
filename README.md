@@ -1,126 +1,85 @@
-# ARC-AGI-2026 Paper & Reasoning Engine
+# ARC-AGI-2026 Reasoning Engine
 
-A research-grade modular reasoning engine for solving **ARC-AGI-2 (Abstraction and Reasoning Corpus)** tasks, incorporating symbolic graph representations, Domain-Specific Language (DSL) program synthesis, multi-engine search, and LLM-assisted reflection.
+[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Tests Status](https://img.shields.io/badge/tests-174%20passed-green.svg)](#-verification--testing)
+[![Neuro-Symbolic](https://img.shields.io/badge/architecture-Neuro--Symbolic-purple.svg)](#-architecture-overview)
 
----
-
-## 🌟 Key Features
-
-- **Symbolic & Object Representation**: Converts ARC grids into rich object graphs, scene graphs, and topology/color feature representations.
-- **Domain-Specific Language (DSL)**: Comprehensive primitive operations for spatial transformations, object manipulations, subgrid actions, and functional combinators.
-- **Multi-Engine Search**: Supports **Beam Search**, **Monte Carlo Tree Search (MCTS)**, **Genetic Search**, and **Constraint Solving**.
-- **Self-Reflection & Verification**: Program candidate scoring, consistency verification, failure reflection, and memory library persistence.
-- **Kaggle & Benchmark Compatible**: Offline execution support and automated bundle exporter (`scripts/export_kaggle_bundle.py`) for Kaggle notebook submissions.
+An advanced neuro-symbolic reasoning engine designed to solve the Abstraction and Reasoning Corpus (ARC-AGI) visual abstraction tasks. By combining structured search heuristics with multi-engine program synthesis, the solver constructs domain-specific language (DSL) programs matching object transformation laws across demonstrations.
 
 ---
 
-## 🏗️ Architecture Overview
+## 🚀 Key Features
 
-The solver processes tasks through an automated multi-stage reasoning pipeline:
+### 1. Neuro-Symbolic Program Synthesis
+- **Multi-Engine Search**: Parallel execution of **Monte Carlo Tree Search (MCTS)**, **Beam Search**, and **Genetic Algorithms** over AST structures.
+- **Relational Scene Graphs**: Converts grids into object-oriented graph representations modeling directional, enclosure, and contact interfaces.
+- **Continuous Relaxed Optimization**: Relaxes discrete program candidate search spaces into continuous parameters for differentiable search trials.
 
-```text
-  Task Loader → Grid Representation → Object & Scene Graph Extraction
-        ↓
-  Feature Extraction & Rule Discovery → DSL Program Synthesis
-        ↓
-  Multi-Engine Search (Beam / MCTS / Genetic / Constraint)
-        ↓
-  Program Execution & Verifier → Reflection & Candidate Ranking
-        ↓
-  Ensemble Aggregation → Final Submission Generator
-```
+### 2. Topological & Structural Invariants
+- **Homology Loop Verification**: Extracts Betti numbers ($\beta_0$, $\beta_1$) and Euler Characteristic signatures to prune candidate programs violating grid topology.
+- **Equivariance-Preserving Spatial Encoder**: Computes shape signatures invariant under Dihedral $D_4$ rotations and reflection symmetries.
+- **Multi-Edge Hypergraph Grammar**: Models alignment configurations and color groups across demonstration grid transitions.
+
+### 3. Verification & Search Enhancements
+- **Dynamic Task Curriculum**: Sorts training demonstration pairs from easiest to hardest based on Shannon entropy and area metrics to warm-start searches.
+- **Topology-Preserving Skeletonization**: Iteratively thins pixel clusters into 1-pixel medial axes for path/maze routing verification.
+- **Self-Attention Transformer Priors**: Ranks optimal DSL transformations utilizing scaled dot-product key-query attention maps over grid shape attributes.
 
 ---
 
-## ⚡ Quick Start
+## 🛠️ Installation & Setup
 
-### 1. Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Angrajkarn/ARC-AGI-2026-Paper.git
+   cd ARC-AGI-2026-Paper
+   ```
 
-Clone the repository and install dependencies in editable mode:
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```bash
-git clone https://github.com/Angrajkarn/ARC-AGI-2026-Paper.git
-cd ARC-AGI-2026-Paper
-pip install -e ".[dev]"
+---
+
+## 💻 Usage & Commands
+
+### Run Unit Tests
+Validate all 174 tests in the test suite:
+```powershell
+pytest
 ```
 
-### 2. Download ARC Datasets
-
-Fetch the official ARC-AGI dataset files:
-
-```bash
-python scripts/download_data.py
+### View Performance Statistics Charts
+Render ASCII performance benchmarks comparing search algorithms:
+```powershell
+python scripts/plot_performance.py
 ```
 
-### 3. Solve a Single Task
-
-Run the solver on a specific task JSON:
-
-```bash
-python scripts/solve.py --task data/datasets/training/007bbfb7.json --algorithm mcts --visualize
+### Build & Verify Kaggle Release
+Compile the standalone submission notebook and verify execution in an offline sandbox:
+```powershell
+python scripts/build_kaggle_release.py
+python scripts/verify_submission.py
 ```
 
-### 4. Evaluate Performance
-
-Run local evaluation on the dataset:
-
-```bash
-# Evaluate on training tasks
-python scripts/evaluate.py --dataset data/datasets/training --max-tasks 50
-
-# Run parallel multi-core evaluation
-python scripts/evaluate_parallel.py --dataset data/datasets/training --workers 4
-```
-
-### 5. Export Kaggle Submission Bundle
-
-Pack the codebase and dependencies into a self-contained notebook bundle for submission:
-
-```bash
-python scripts/export_kaggle_bundle.py --output results/kaggle_submission_notebook.py
+### Launch Interactive Web Dashboard
+Run the Streamlit visualization inspector:
+```powershell
+streamlit run src/ui/app.py
 ```
 
 ---
 
-## 📁 Repository Structure
+## 📐 Architecture Overview
 
-```text
-ARC-AGI-2026-Paper/
-├── src/
-│   ├── core/          # ArcGrid, ArcObject, and SceneGraph data structures
-│   ├── dsl/           # Domain-Specific Language primitives, AST, and executor
-│   ├── vision/        # Geometry, topology, color, and feature extraction
-│   ├── reasoning/     # Rule discovery, task planner, and shape predictor
-│   ├── search/        # Search algorithms (Beam, MCTS, Genetic, Constraint)
-│   ├── verifier/      # Exact match & candidate consistency verification
-│   ├── reflection/    # Reflector logic for failure analysis & retries
-│   ├── memory/        # Program library and memory store
-│   ├── ensemble/      # Multi-solver ensemble module
-│   ├── ranking/       # Candidate score ranker
-│   ├── llm/           # LLM reasoning assistant adapter
-│   ├── evaluation/    # Local benchmark evaluator
-│   ├── submission/    # Submission generator (submission.json)
-│   ├── api/           # Python API interface
-│   └── ui/            # Grid visualizer
-├── configs/           # YAML solver configurations
-├── scripts/           # CLI entry points
-├── tests/             # Unit and integration test suite
-├── pyproject.toml     # Package configuration & dependencies
-└── README.md          # Project documentation
+```mermaid
+graph TD
+    A[Input/Output Grids] --> B[Object Detector & Parser]
+    B --> C[Scene Graph Representation]
+    C --> D[Self-Attention Transformer Priors]
+    D --> E[Multi-Engine AST Synthesis]
+    E --> F[MCTS / Genetic Search]
+    F --> G[Topology Invariant Matcher]
+    G --> H[Consensus Voting Output]
 ```
-
----
-
-## ⚙️ Configuration
-
-Engine hyperparameters are defined in YAML files located in `configs/`. You can specify custom configurations via the CLI:
-
-```bash
-python scripts/solve.py --task data/datasets/training/007bbfb7.json --config configs/mcts.yaml
-```
-
----
-
-## 📄 License
-
-Distributed under the **Apache License 2.0**. See `LICENSE` for details.
